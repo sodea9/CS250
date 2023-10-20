@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}         
+\usepackage{fullpage}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{enumitem}
+
+\title{250 Homework $\#$1}
+\author{Sean O'Dea \footnote{Collaborated with Jonah Willers and Tomas Acu\~na}}
+
+\begin{document}
+\maketitle
+
+\section*{\textbf{P2.1.1} [8 pts]}
+Let $A$ be any set. What are the direct products $\emptyset \times A$ and $A \times \emptyset$? If $x$ is any \texttt{thing}, what are the direct products $A \times \{x\}$ and $\{x\} \times A$? Justify your answers.
+
+
+
+\subsection*{\textbf{Solution:}}
+If we let $A$ be any set and take the cartesian product of $A$ and the empty set in any order, the result will also be the empty set as there is nothing to relate the elements of $A$ with. \\\\
+$\emptyset \times A = \emptyset$, $A \times \emptyset = \emptyset$ \\\\
+If we take the cartesian product of $A$ with a set that contains a single element $x$ we'll get a set consisting of relations of every element in $A$ and $x$. If $x$ comes last in the product, it will be the thing related to, whereas if it comes first will relate to every element in $A$. \\\\
+$A \times \{x\} = \{(A_{1}, x), (A_{2}, x),\ldots , (A_{n}, x)\}$\\
+$\{x\} \times A = \{(x, A_{1}), (x, A_{2}), \ldots , (x, A_{n})\}$
+
+
+
+\newpage
+\section*{\textbf{P2.1.5} [10 pts]}
+Let $n$ be a natural and let $I(x)$ be a unary relation on the set $\{0, \ldots , n - 1\}$. Let $w$ be the binary string of length $n$ that has 1 in position $x$ whenever $I(x)$ is true and 0 in position $x$ when $I(x)$ is false. (As in Java, we consider the positions of the letters in the string to be numbered starting from 0.) What is the string corresponding to the predicate $I(x)$ meaning “$x$ is an even number” in the case where $n = 5$? The case where $n = 8$? If $w$ is an arbitrary string and $I(x)$ the corresponding unary predicate, describe the set corresponding to the predicate in terms of $w$.
+\subsection*{\textbf{Solution:}}
+$n = 5$ - The set is $\{0, 1, 2, 3, 4\}$. Constructing the string $w$ over the set using $I(x)$, we get $w = "10101"$ because 0 is even, 1 is odd, 2 is even, etc up to 5. \\\\
+$n = 8$ - The set is $\{0, 1, 2, 3, 4, 5, 6, 7\}$. Constructing the string $w$ over the set using $I(x)$, we get $w = "101010101"$ because 0 is even, 1 is odd, 2 is even, etc up to 8. \\\\
+The set corresponding to $I(x)$ in terms of $w$ will be only the indices of $w$ where it equals 1.
+
+
+
+\newpage
+\section*{\textbf{P2.3.2} [12 pts]}
+Suppose that for $any$ unary predicate $P$ on a particular type $T$, you know that the proposition $(\exists x : P(x)) \leftrightarrow (\forall x : P(x))$ is true. What does this tell you about $T$? Justify your answer – state a property of $T$ and explain why this proposition is always true if $T$ has your property, and not always true if $T$ does not have your property.
+
+
+\subsection*{\textbf{Solution:}}
+From this proposition, we know that a property of the type $T$ is that it has only one possible value. If this property is true, the proposition is \textit{always} true because the predicates on either side of the equivalence always evaluate the same value, and therefore are always equal.\\\\
+If this property is false, $T$ is not always true because there could be values of the same type that don't both make $P(x)$ true. For example, if $T$ is the natural numbers (which has more than one possible value), and $P(x)$ is true if the value is even, the proposition is not always true. There are even naturals, but not all naturals are even.
+
+
+\newpage
+\section*{\textbf{P2.5.6} [12 pts]}
+Suppose that $A$ is a language such that $\lambda \notin A$. Let $w$ be a string of length $k$. Show that there exists a natural $i$ such that for every natural $j > i$, every string in $A^j$ is longer than $k$. Explain how this fact can be used to decide whether $w$ is in $A^*$.
+
+\subsection*{\textbf{Solution:}}
+Supposing $A$ is a language that does not contain $\lambda$, we know every string in $A$ must have a length of at least 1. If we concatenate $A$ $j$ times, the minimum length of a string in the resulting set will be $j$ because it had a length of 1 added $j$ times. This minimum length string, which we can call $v$ has a length of $j$. Let's assume $i = k$. We know $j  > i$ so the string $v$ is longer than $w$. Therefore, every string in $A$ must be longer than $k$ because this is true for the smallest possible string in $A^{j}$. \\\\
+$A^{*}$ is defined as $A^{0} \cup A^{1} \cup A^{2} \cup \ldots$ Following from this, since every string in $A^{j}$ is longer than $w$, we don't need to check if $w \in A^{k+1}$ and above since $w$ is smaller than the elements of all of those sets. We only need to check if $w \in A^{0} \cup A^{1} \cup A^{2} \cup \ldots \cup A^{k}$.
+
+
+
+\newpage
+\section*{\textbf{P2.6.3} [14 pts]}
+Heinlein’s second puzzle has the same form. Here you get to figure out what the intended conclusion is to be\footnote{You must also translate the statements into formal predicate calculus — note for example the two different phrasings used for “is quite dry”. In the novel, the solver of the puzzle concludes (correctly) that the nearby aircar is also a time-traveling machine, but strictly speaking this is not a valid conclusion from the given premises.}, and prove it as above:
+\begin{enumerate}
+    \item Everything, not absolutely ugly, may be kept in a drawing room;
+
+    \item Nothing, that is encrusted with salt, is ever quite dry;
+
+    \item Nothing should be kept in a drawing room, unless it is free from damp;
+
+    \item Time-traveling machines are always kept near the sea;
+
+    \item Nothing, that is what you expect it to be, can be absolutely ugly;
+
+    \item Whatever is kept near the sea gets encrusted with salt.\footnote{You may want to look at P2.6.2 on page 108 for reference.}
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+Definitions:
+\begin{enumerate}[I.]
+    \item $\forall x: \neg AU(x) \implies DR(x)$
+
+    \item $\forall x: ES(x) \implies \neg D(x)$
+
+    \item $\forall x: DR(x) \implies D(x)$
+
+    \item $\forall x: TM(x) \implies S(x)$
+
+    \item $\forall x: AU(x) \implies \neg WYE(x)$
+
+    \item $\forall x: S(x) \implies ES(x)$
+\end{enumerate}
+$AU(x)$ - is absolutely ugly, $DR(x)$ - is kept in a drawing room, $ES(x)$ - is encrusted with salt, $D(x)$ - is dry, $TM(x)$ - is a time machine, $S(x)$ - is kept near the sea, $WYE(x)$ - is what you expect.
+\newpage
+Proof:
+\begin{center}
+\begin{tabular}{r | l l}
+1 & $\forall x: AU(x) \implies \neg WYE(x)$ & Premise V\\
+2 & $\forall x: WYE(x) \implies \neg AU(x)$ & Contrapositive(V)\\
+3 & $\forall x: WYE(x) \implies DR(x)$ & Transitivity(2, I)\\
+4 & $\forall x: WYE(x) \implies D(x)$ & Transitivity(3, III)\\
+5 & $\forall x: D(x) \implies \neg ES(x)$ & Contrapositive(II)\\
+6 & $\forall x: WYE(x) \implies \neg ES(x)$ & Transitivity(4, 5)\\
+7 & $\forall x: \neg ES(x) \implies \neg S(x)$ & Contrapositive(VI)\\
+8 & $\forall x: WYE(x) \implies \neg S(x)$ & Transitivity(6, 7)\\
+9 & $\forall x: \neg S(x) \implies \neg TM(x)$ & Contrapositive(IV)\\
+10 & $\forall x: WYE(x) \implies \neg TM(x)$ & Transitivity(8, 9)
+\end{tabular}
+\end{center}
+The conclusion $\forall x: WYE(x) \implies \neg TM(x)$ means that everything you expect is not a time machine.
+
+
+\newpage
+\section*{\textbf{P2.8.1} [10 pts]}
+ Let $A = \{1, 2\}$ and $B = \{x, y\}$. There are exactly sixteen different possible relations from $A$ to $B$. List them. How many are total? How many are well-defined? How many are functions? How many are neither well-defined nor total?
+
+
+\subsection*{\textbf{Solution:}}
+\begin{tabular}{r l}
+$\{(1,x), (1,y), (2,x), (2,y)\}$ & Total\\
+$\{(1,x), (1,y), (2,x)\}$ & Total\\
+$\{(1,x), (1,y), (2,y)\}$ & Total\\
+$\{(1,x) (2,x), (2,y)\}$ & Total\\
+$\{(1,y), (2,x), (2,y)\}$ & Total\\
+$\{(1,x), (1,y)\}$ & Neither\\
+$\{(2,x), (2,y)\}$ & Neither\\
+$\{(1,x), (2,y)\}$ & Total, Well-Defined, Function\\
+$\{(1,y), (2,x)\}$ & Total, Well-Defined, Function\\
+$\{(1,x), (2,x)\}$ & Total, Well-Defined, Function\\
+$\{(1,y), (2,y)\}$ & Total, Well-Defined, Function\\
+$\{(1,x)\}$ & Well-Defined\\
+$\{(1,y)\}$ & Well-Defined\\
+$\{(2,x)\}$ & Well-Defined\\
+$\{(2,y)\}$ & Well-Defined\\
+$\emptyset$ & Well-Defined
+\end{tabular}
+\\\\ 9 Total, 9 Well-Defined, 4 Functions, and 2 are None
+
+
+
+\newpage
+\section*{\textbf{P2.9.3} [10 pts]}
+Let $f : A \rightarrow B$ and $g : B \rightarrow C$ be functions such that $g \circ f$ is a bijection. Prove that $f$ must be one-to-one and that $g$ must be onto. Give an example showing that it is possible for neither $f$ nor $g$ to be a bijection.
+
+
+\subsection*{\textbf{Solution:}}
+$g \circ f$ maps $A \rightarrow C$ and is both one-to-one and onto. If the map to $C$ is onto, all elements of $C$ must have something mapped to them. This means $g(x)$ must be onto because it also maps to $C$. If $g$ is not onto, the resulting composition could not be. Suppose $g$ is not onto. The elements of $B$ would not map to all of the elements in $C$ and thus the elements of $A$ would not map to all of the elements of $C$, so the composition could not be onto.\\\\
+Similarly $f$ must also be one-to-one because otherwise multiple elements in $A$ would map to the same element in $C$. Suppose $f$ is not one-to-one. Two or more of the inputs from $A$ map to one output in $B$. This output in $B$ then maps to an output in $C$. This would mean two inputs in $A$ map to one output in $C$, and $f$ could not be one-to-one.\\\\
+An example of $f$ and $g$ not being bijections individually would be if the intermediary set $B$ had elements that $A$ does not map to, but still map to $C$ This would mean $f$ is not onto because there are elements in the output set not mapped to. It also means $g$ is not one-to-one because more than one of the inputs in $B$ would have to map to outputs in $C$.
+
+
+
+\newpage
+\section*{\textbf{P2.9.7} [12 pts]}
+Let $A$ be a set and $f$ a bijection from $A$ to itself. We say that $f$ fixes an element $x$ of $A$ if $f(x) = x$.
+
+\begin{enumerate}[(a)]
+    \item Write a quantified statement, with variables ranging over $A$, that says “there is exactly one element of $A$ that f does not fix.”
+
+    \item Prove that if $A$ has more than one element, the statement of part (a) leads to a contradiction. That is, if $f$ does not fix $x$, and there is another element in $A$ besides $x$, then there is some other element that $f$ does not fix.
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item $\exists x: \forall y: (x \neq y) \land (f(x) \neq x) \land \neg (f(y) \neq y$) 
+
+    \item Let's assume $|A| > 1$. Let's also assume only one element of $A$ is not fixed, meaning all the other elements are fixed. If all the other elements only map to themself, and there does not exist a mapping to or from the non-fixed element we have a contradiction because $f$ is not onto (nothing maps to the non-fixed element) and thus not bijective.\\\\
+If we try to fix this by mapping one of the fixed elements to the non-fixed one, $f$ is no longer well-defined (and thus not a bijective function) because one of its elements maps to more than one output. In both cases here we have a contradiction.
+\end{enumerate}
+
+
+\newpage
+\section*{\textbf{P3.1.7} [12 pts]}
+A \textbf{perfect number} is a natural that is the sum of all its proper divisors. For example, $6 = 1 + 2 + 3$ and $28 = 1 + 2 + 4 + 7 + 14$. Prove that if $2^n - 1$ is prime, then $(2^n - 1)2^{n-1}$ is a perfect number. (A prime of the form $2^n - 1$ is called a \textbf{Mersenne prime}. Every perfect number known is of the form given here, but it is unknown whether there are any others.)
+
+
+\subsection*{\textbf{Solution:}}
+Let's assume $2^{n}-1$ is prime. This means the divisors of $(2^n - 1)2^{n-1}$ are the powers of 2 up to $2^{n-1}$ inclusive, and the powers of 2 (up to $2^{n-1}$ exclusive) mulitplied by the Mersenne Prime. We can express the first grouping as a sum of $2^{n}-1$ based on the axiom: \[ \sum_{i=0}^{n-1} 2^{i} = 2^{n}-1 \] The second grouping can be expressed as the sum: \[ \sum_{i=0}^{n-2} 2^{i}(2^{n}-1) = (2^{n}-1)\sum_{i=0}^{n-2} 2^{i} = (2^{n} - 1)(2^{n-1}-1) \] This simplification follows from the previous axiom. If we add the two sums we get: $2^{n}-1 + (2^{n}-1)(2^{n-1}-1) = (2^{n}-1)+(2^{n-1}-1)(2^{n}-1) = (2^{n} -1)(1+(2^{n-1}-1)) = (2^{n}-1)2^{n-1}$. By summing the divisors, we've simplified to our first statement, thus a number expressed in the form $(2^n - 1)2^{n-1}$ where ($2^n - 1$ is a prime number) is a perfect number.
+
+
+\newpage
+\section*{\textbf{EC: P2.10.6} [10 pts]}
+There is only one partial order possible on the set $\{a\}$, because $R(a, a)$ must be true. On the set $\{a, b\}$, there are three possible partial orders, as $R(a, a)$ and $R(b, b)$ must both be true and either zero or one of $R(a, b)$ and $R(b, a)$ can be true. List all the possible partial orders on the set $\{a, b, c\}$. (Hint: There are nineteen of them.) How many are linear orders?
+
+
+\subsection*{\textbf{Solution:}}
+
+
+
+\end{document} 
