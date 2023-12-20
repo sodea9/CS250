@@ -1,0 +1,306 @@
+\documentclass[12pt]{article}         
+\usepackage{fullpage}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{enumitem}
+
+\title{250 Homework $\#$1}
+\author{Sean O'Dea\footnote{Collaborated with Jonah Willers, Tom\'as Acu\~na, Archimedes Li, and Owen Bechtel}}
+
+\begin{document}
+\maketitle
+
+\section*{\textbf{P1.1.3} [10 pts]}
+Let $A$ be the set $\{1, 2, 3\}$. Give explicit descriptions (lists of elements) of each of the following \textit{sets of sets}:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\{B : B \subseteq A\}$
+    \item $\{B : B \subseteq A$ and $|B|$ is even$\}$ (Remember that 0 is an even number.)
+    \item $\{B : B \subseteq A$ and $ 3 \notin B\}$
+    \item $\{B : B \subseteq A$ and $ A\subseteq B\}$
+    \item $\{B : B \subseteq A$ and $ B \not\subseteq B\}$
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item \{\{1, 2, 3,\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{\}\}
+
+    \item \{\{1, 2\}, \{1, 3\}, \{2, 3\}, \{\}\}
+
+    \item \{\{1, 2\}, \{1\}, \{2\}, \{\}\}
+
+    \item \{\{1, 2, 3\}\}
+
+    \item \{\}
+
+\end{enumerate}
+
+
+\newpage
+\section*{\textbf{P1.2.10} [10 pts]}
+Let $\Sigma $ be an alphabet with $k$ letters and let $n$ be any natural. How many strings are in the language $\Sigma^ n$? Justify your answer as best you can, though we won’t have formal tools to prove this until Chapter 4.
+
+\subsection*{\textbf{Solution:}}
+A language $\Sigma^n$ over an alphabet with $k$ letters will have $k^n$ strings. The number of permutations increases by a factor of $k$ for each increment of $n$. For example:
+\\\\If we have an alphabet $A = \{a,b\}$ and find the set of all strings with length 2 we get $A^2 = \{"aa", "ab", "ba", "bb"\}$. In this case $k$ is 2 and $n$ is 2, $k^n = 2^2 = 4 = |A^2|$.
+\\\\We can also find $A^3 = \{"aaa", "aab", "aba", "abb", "baa", "bab", "bba", "bbb"\}$. In this case $k$ is still 2 and $n$ is 3, $k^n = 2^3 = 8 = |A^3|$.
+\\\\ Looking at a different example, let's say the alphabet $B = \{a,b,c\}$. $B^2 = \{"aa", "ab", "ac", \\"ba", "bb", "bc", "ca", "cb", "cc"\}$ In this case $k$ is now 3 and $n$ is 2, $k^n = 3^2 = 9 = |B^2|$.
+\\\\ We can also look at an example using any alphabet where we find $A^0$. The only solution is the empty string, $ \lambda$. Thus, $|A^0| = 1$ which is consistent with $k^0$ which will always be 1.
+\\\\We can see the formula holds up for all examples so far, and likely will for others.
+
+
+
+\newpage
+\section*{\textbf{P1.4.9} [12 pts]}
+Choosing variables for the base propositions as needed, translate these English statements into compound propositions.
+\begin{enumerate}[label=(\alph*)]
+    \item If you don’t eat your meat, you can’t have any pudding.
+\item If I’m wearing the antlers, I am dictating, and if I’m not wearing the antlers, I’m not dictating.
+\item If this penguin was from the zoo, it would have “Property of the Zoo” stamped on it, and if penguins molt, this penguin could not have “Property of the Zoo” stamped on it.
+\item It is not true that if I am arguing, then you must have paid.
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item Definitions:
+	\begin{itemize}
+	  \item $m =$ "You ate your meat."
+	  \item $p =$ "You can have pudding."
+	\end{itemize}
+	$(\neg m \implies \neg p)$ which can be simplified to $(p \implies m)$
+
+    \item Definitions:
+	\begin{itemize}
+	  \item $a =$ "I am wearing antlers."
+	  \item $d =$ "I am dictating."
+	\end{itemize}
+	$(a \implies d) \land (\neg a \implies \neg d)$ which can be simplified to $(a \iff d)$
+
+    \item Definitions:
+	\begin{itemize}
+	  \item $z =$ "The Penguin was from the zoo."
+	  \item $s =$ "It has "Property of the Zoo" stamped on it."
+	  \item $m =$ "Penguins molt."
+	\end{itemize}
+	$(z \implies s) \land (m \implies \neg p)$
+
+    \item Definitions:
+	\begin{itemize}
+	  \item $a =$ "I am arguing."
+	  \item $p =$ "You must have paid."
+	\end{itemize}
+	$\neg(a \implies p)$
+
+\end{enumerate}
+
+
+\newpage
+\section*{\textbf{P1.5.7} [12 pts]}
+Any subset statement may be interpreted as saying that some particular set is empty. Let $D$ be a set of dogs, and let $B$, $R$, and $F$ be three subsets of $D$ containing the black dogs, the retrievers, and the female dogs respectively. The statement $B \subseteq R$, for example, can be interpreted as “all the black dogs are retrievers”, or “there are no black dogs who are not retrievers”, that is, $B \cap \overline{R} = \emptyset$. For each of the following subset statements, identify the set that is claimed to be empty, both in English and in symbols:
+
+\begin{enumerate}[label=(\alph*)]
+\item $B \cap F \subseteq R$
+\item $F \subseteq R \cap B$
+\item $B \subseteq R \cup F$
+
+\end{enumerate}
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item All black, female dogs are black retrievers. $\implies$ There are no black, female dogs who are not retrievers.
+	\\$(B \cap F) \cap \overline R = \emptyset$
+
+    \item All female dogs are black retrievers. $\implies$ There are no female dogs who are not black retrievers.
+	\\\\$F \cap (\overline R \cap \overline B) = \emptyset$
+
+    \item All black dogs are females or retrievers. $\implies$ There are no black dogs who are not either a female or a retriever.
+	\\\\$B \cap (\overline R \cup \overline F) = \emptyset$
+
+\end{enumerate}
+
+
+\newpage
+\section*{\textbf{P1.5.10} [12 pts]}
+Let $X = \{1, 2, 3, \dots, 10\}$ and let $I$ be the set of all intervals in $X$, that is, subsets of the form $\{a, \dots, b\}$ for some naturals $a$ and $b$.
+\begin{enumerate}[label=(\alph*)]
+    \item How many intervals are in the set $I$? (Don’t forget the empty set.) 
+    \item How many of the intervals are subsets of $\{2, 3, 4, 5, 6\}$?
+    \item How many of the intervals are disjoint from $\{2, 3, 4, 5, 6\}$?
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item We can calculate this systematically. Our first interval that starts with 1 is $[1, 10]$. The next interval is $[1, 9]$. These will keep going as the high end decrements, leading to their being 10 intervals in total that start with 1. 
+				If we then find all intervals that start with 2, there will be 9 because the longest interval is $[2, 9]$ and will keep shrinking; $[2, 8], [2, 7]$ and so on. Continuing this pattern we find the total number of intervals is $10+9+8+7+6+5+4+3+2+1=55$. Finally we add the empty set, so 56 intervals.
+
+    \item We can find this by looking at all the intervals of the set $\{2, 3, 4, 5, 6\}$ because they will all be in the total set of intervals for the superset. Using the same process as before, $5+4+3+2+1=15$. With the empty set it will be 16 intervals.
+
+    \item This time we find the intervals of the two disjoint sets (with respect to $\{2, 3, 4, 5, 6\}$), $\{1\}$ and $\{7, 8, 9, 10\}$. This yields $4+3+2+1+1=11$. With the empty set it will be 12 intervals.
+
+\end{enumerate}
+
+
+\newpage
+
+
+
+\newpage
+\section*{\textbf{P1.7.9} [14 pts]}
+Here we have another islander problem as in Problem 1.6.9. There are three islanders: $A$ says “If $B$ and I are both telling the truth, then so is $C$”, $B$ says “If $C$ is telling the truth, then $A$ is lying”, and $C$ says “It is not the case that all three of us are telling the truth.” Using propositional variables $a$, $b$, and $c$ to represent the truth of the statements of $A$, $B$, and $C$ respectively, we can represent the problem by the three premises $a \leftrightarrow ((a \wedge b) \rightarrow c)$, $b \leftrightarrow (c \rightarrow \neg a)$, and $c \leftrightarrow \neg(a \wedge b \wedge c)$. Determine the conclusion as a conjunction of three literals, and give a deductive sequence proof of this conclusion from the premises.
+
+
+\subsection*{\textbf{Solution:}}
+Premises:
+\begin{enumerate}[I.]
+    \item $a \iff ((a \land b) \implies c)$
+
+    \item $b \iff (c \implies \neg a)$
+
+    \item $c \iff \neg (a \land b \land c)$
+\end{enumerate}
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ 1. & $\neg c$ & Assumption\\ 
+\hline
+ 2. &$(a \land b \land c)$ & Equivalence\\ 
+\hline
+ 3. & $c$ & Right Separation\\
+\hline
+ 4. &$c \land \neg c$ & Contradiction\\
+ \hline
+\end{tabular}
+\\~\\~\\
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ 5. & $c$ & Conclusion\\ 
+\hline
+ 6. & $c \implies ((a \land b) \implies c)$ & Trivial Proof\\
+\hline
+ 7 &$(a \land b) \implies c$ & Modus Ponens(5,6)\\
+ \hline
+ 8. &$a$ & Premise I \\
+\hline
+\end{tabular}
+\\~\\~\\
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ 9. & $c$ & Conclusion\\ 
+\hline
+ 10. & $a$ & Conclusion\\
+\hline
+ 11. & $c \implies \neg a$ & Contradiction\\
+\hline
+ 12. &$b \iff False$ & Premise II \\
+\hline
+ 13. &$a \land \neg b \land c$ & Conjunction for Final Conclusion \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\section*{\textbf{P1.8.3} [10 pts]}
+Suppose that you have proved $0$ from the premise $P \wedge \neg Q$. Show how you can use Proof By Cases and this proof to construct a direct proof of $P \rightarrow Q$.
+
+
+\subsection*{\textbf{Solution:}}
+ From our premise $P \land \neg Q \iff 0$ we can construct a truth table of all possible cases.
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+& P & Q & P $\implies$ Q \\ 
+\hline
+Case 1: & T & T & T \\ 
+Case 2: & F & T & T \\
+Case 3: & F & F & T \\
+ \hline
+\end{tabular}
+\end{center}
+The condition $P \implies Q$ is proved for all cases.
+
+
+\newpage
+\section*{\textbf{P1.8.4} [12 pts]}
+Here you will complete a famous proof, known to the ancient Greeks, that the number $\sqrt{2}$ is \textbf{irrational} (that it cannot be expressed as $p/q$ where $p$ and $q$ are naturals). Suppose that $\sqrt{2} = p/q$ and that the fraction $p/q$ is in lowest terms. Then by arithmetic, $p^2 = 2q^2$. Now
+use Proof By Cases, where the new proposition is “$p$ is even”. Derive a contradiction in each case. amd argue using Proof By Contradiction that $\sqrt{2}$ is irrational. (Remember, as we will show formally in Chapter 3, that a natural is even if and only if its square is even.)
+
+\subsection*{\textbf{Solution:}}
+Suppose $\sqrt{2}$ is rational. We can express it as a fraction $\frac{p}{q}$ in lowest terms.\\
+$\sqrt{2} = \frac{p}{q} \iff 2 = \frac{p^2}{q^2} \iff p^2 = 2q^2$ \\\\
+
+\textbf{Case 1:}
+Let's assume $p$ is even, thus $p^2$ is even as well. Since $p$ is even, it can be expressed as $2m$ where $m$ is some integer. This gives us $(2m)^2 = 2q^2$ which simplifies to $2m^2 = q^2$.\\
+
+$q^2$ is expressed as 2 times some integer squared and thus it must be even. If $q^2$ is even, $q$ is even, and thus it can be expressed as $2n$ where n is an integer. We now know both $p$ and $q$ are even, so $\frac{p}{q}$ can be expressed as $\frac{2m}{2n}$ which will reduce to $\frac{m}{n}$. We find our original ratio was not, in fact, in simplest form so we have a contradiction. From this we can conclude $p$ can not be even.\\
+
+\textbf{Case 2:}
+Now let's assume $p$ is odd. From earlier, $p^2 = 2q^2$. $p^2$ is expressed as 2 times an integer q so it must be even. If $p^2$ is even, p must be even and we have a contradiction.\\\\
+
+\textbf{Conclusion:}
+Both cases of p have been proven false, so $\sqrt{2}$ cannot be expressed as a ratio in simplest form and thus is not rational.
+
+
+\newpage
+\section*{\textbf{P1.10.1} [12 pts]}
+Let $\Sigma = \{a, b\}$. Using the same string predicates defined in Exercises 1.10.2 and 1.10.3 above, express the following sets in set builder notation (that is, determine their predicate form):
+
+\begin{enumerate}[label=(\alph*)]
+\item $\{aa,bb\}$.
+
+\item $\{a,aa,aaa,aba,aaaa,aaba,abaa,abba,aaaaa,aaaba,aabaa,aabba,\cdots\}$.
+
+\item $\{aaaa, aaab, abaa, abab, baba, babb, bbba, bbbb\}$. (You will also need the concatenation operation here.)
+
+\end{enumerate}
+
+
+\subsection*{\textbf{Solution:}}
+Definitions:
+\begin{itemize}
+    \item P(w) means w is a string of two letters.
+
+    \item Q(w) means w starts and ends with the same letter.
+
+    \item R(v,w) means v and w start with the same letter.
+\end{itemize}
+\begin{enumerate}[(a)]
+    \item $\{w \mid P(w) \land Q(w)\}$
+
+    \item $\{w \mid Q(w) \land R(w, "a")\}$
+
+    \item $\{vw \mid P(v) \land P(w) \land R(v,w)\}$
+
+\end{enumerate}
+
+
+\newpage
+\section*{\textbf{EC: P2.3.3} [10 pts]}
+Let $A$ and $B$ be two types such that $A$ is a proper subset of $B$ (so that $B$ contains all the elements of $A$ plus at least one other element). Let $P$ be a unary predicate on $A$, and let $Q$ be a unary predicate on $B$. Suppose that $\forall a : \forall b : P(a) \rightarrow Q(b)$ is true. Which of the following four statements is guaranteed to be true? For each statement, explain why it is always true or give an example where it is false. (\textbf{Hint:} Consider the case where $A$ is empty.)
+
+\begin{enumerate}[label=(\alph*)]
+    \item $( \forall a: P(a)) \rightarrow (\forall b: Q(b))$
+    \item $( \forall b: Q(b)) \rightarrow (\forall a: P(a))$
+    \item $( \exists a: P(a)) \rightarrow (\exists b: Q(b))$
+    \item $( \exists b: Q(b)) \rightarrow (\exists a: P(a))$
+\end{enumerate}
+
+\subsection*{\textbf{Solution:}}
+\begin{enumerate}[(a)]
+    \item 
+
+    \item
+
+    \item 
+
+    \item 
+    
+\end{enumerate}
+
+
+\end{document} 
